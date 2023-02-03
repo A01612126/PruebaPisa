@@ -2,19 +2,26 @@
 #En este archivo se pegarán las demás partes del programa para completar el test.
 
 def menu_p():
-    print('''Menú principal: Test para prueba PISA
-    
-    Con el fin de mejorar su desempeño en la prueba PISA, este test realizará preguntas sobre los temas que
-    este examen contiene. Por favor, seleccione una opción: ''')
+    def menu_p2():
+        print('''Menú principal: Test para prueba PISA
+        
+        Con el fin de mejorar su desempeño en la prueba PISA, este test realizará preguntas sobre los temas que
+        este examen contiene. Por favor, seleccione una opción: ''')
 
-    opcion=input('''
-    a) Sección de Español/Lectura
-    b) Sección de Matemáticas
-    c) Sección de Ciencias
-    d) Salir
-    Respuesta: ''')
-    opcion=opcion.lower()
-    opcion=opcion.strip()
+        opcion=input('''
+        a) Sección de Español/Lectura
+        b) Sección de Matemáticas
+        c) Sección de Ciencias
+        d) Salir
+        Respuesta: ''')
+        opcion=opcion.lower()
+        opcion=opcion.strip()
+        return opcion
+    opcion=menu_p2()
+    while opcion!='a' and opcion!='b' and opcion!='c' and opcion!='d':
+        print ('Opcion invalida')
+        print ('Porfavor intente de nuevo')
+        opcion=menu_p2()
 
     if opcion=="b":
         puntaje=0
@@ -379,6 +386,10 @@ def menu_p():
     
     elif opcion=="d":
         print ("Muchas gracias por usar el programa!!")
+    else:
+        print ('Opcion invalida')
+        print ('Porfavor intente de nuevo')
+        menu_p2()
         
 menu_p()
 
