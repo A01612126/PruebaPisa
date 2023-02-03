@@ -335,61 +335,55 @@ def menu_p():
 
     #Ciencias
     elif opcion=="c":
-
+        # Definimos una funcion que nos prepare las opciones y nos diga si esta correcta o no
         def ask_question(Pregunta, Opciones, Respuesta):
-                # Definimos el número de veces que se puede preguntar una pregunta y usamos un while para no pasarnos
+            # Definimos el numero de veces que se puede preguntar una pregunta y usamos un while para no pasarnos
             attempts = 0
             while attempts < 2:
-                   # Aqui ya con las opciones, las imprimimos y acomodamos para que el usuario las tenga como opciones
+                # Aqui ya con las opciones nadamas las imprimimos y acomodamos para que el usuario las tenga como opciones
                 print(Pregunta)
                 print('A)', Opciones[0])
                 print('B)', Opciones[1])
                 print('C)', Opciones[2])
-                    # El usuario pone su input
-                user_answer = input("Ingrese la respuesta (A, B, o C): ")
-                    # Aquí se checa si la respuesta está mal le agrega al attempt 1 punto para que no se repita la pregunta como ya habíamos dicho antes
+                # El usuario pone su input
+                user_answer = input("Ingresa la respuesta (A, B, o C): ")
+                # Aqui se checa si la respuesta esta mal le agrega al attemp 1 punto para que no se repita la pregunta como ya haviamos dicho antes
                 if user_answer.upper() != Respuesta:
                     attempts += 1
-                    print("Incorrecto, intenta de nuevo.")
-                    # Aquí si la respuesta es correcta nos imprime correcto
+                    if attempts<=1:
+                        print("Incorrecto, intenta de nuevo.")
+                # Aqui si la respuesta es correcta nos imprime correcto
                 else:
                     print("Correcto!")
                     return user_answer.upper()
-                # Si el usuario obtuvo 2 veces la respuesta incorrecta el while lo saca y manda imprimir lo siguiente
-                print("La respuesta correcta es " + Respuesta)
-                # Esto regresa la respuesta para que se cheque si puede tener un punto
-                return
-            # Definimos una lista que contiene adentro un diccionario con todo (Preguntas, opciones y respuestas).
+            # Si el usuario obtuvo 2 veces la respuesta incorrecta el while lo saca y manda imprimir lo siguiente
+            print("La respuesta correcta es " + Respuesta)
+            # Esto regresa la respuesta para que se cheque si puee tener un punto
+            return
+        # Definimos una lista que contiene adentro un diccionario con todo (Preguntas, opciones y respuestas).
         Preguntas = [
-                {"Pregunta": "¿Qué es el ADN?", "Opciones": ["Una sustancia presente en las membranas celulares que impide que se salga el contenido de la célula.", "Una molécula que contiene las instrucciones para la fabricación de nuestros cuerpos.", "Una proteína presente en la sangre que ayuda a transportar oxígeno a los tejidos."],"Respuesta": "B"},
-                {"Pregunta": "Muchas enfermedades pueden curarse utilizando antibióticos. Sin embargo, el éxito de algunos antibióticos frente a la fiebre puerperal ha disminuido en los últimos años. ¿Cuál es la razón de este hecho?", "Opciones": ["Una vez fabricados, los antibióticos pierden gradualmente su actividad.", "Las bacterias se hacen resistentes a los antibióticos", "Esos antibióticos sólo ayudan frente a la fiebre puerperal, pero no frente a otras enfermedades."],"Respuesta":"B"},
-                {"Pregunta": "¿Cuál de las siguientes funciones es propia del pulmón?","Opciones": ["Bombear sangre oxigenada a todas las partes del cuerpo.", "Purificar la sangre reduciendo a cero su contenido en dióxido de carbono.", "Transferir el oxígeno del aire que respiras a la sangre."],"Respuesta":"C"},
-                {"Pregunta": "¿Cuál de las siguientes preguntas no puede ser respondida mediante pruebas científicas?", "Opciones": ["¿En quién pensaba la víctima cuando murió?", "¿Cuál fue la causa médica o fisiológica del fallecimiento de la víctima?", "¿Constituye el raspado de la mejilla una forma segura de recoger muestras de ADN?"],"Respuesta": "A"},
-                {"Pregunta": "¿Cuál es el proceso de la fotosíntesis en las plantas?","Opciones": ["Las plantas toman dióxido de carbono y producen oxígeno","Las plantas toman oxígeno y producen dióxido de carbono","Las plantas toman luz solar y producen glucosa"],"Respuesta": "C"},
-                {"Pregunta": "¿Cuántas cámaras tiene el corazón humano?","Opciones": ["1","2","3"],"Respuesta": "B"},
-                {"Pregunta": "¿Cuál es la función principal del sistema digestivo en nuestro cuerpo?","Opciones": ["Producir hormonas","Almacenar comida","Descomponer la comida en nutrientes utilizables"],"Respuesta": "C"},
-                {"Pregunta": "¿Cómo se llaman las unidades básicas de la vida?","Opciones": ["Átomos","Células","Tejidos"], "Respuesta": "B"},
-                {"Pregunta": "¿Cómo obtienen los nutrientes las plantas?","Opciones": ["A través de sus raíces del suelo","A través de sus hojas del aire","A través de su tallo del agua"],"Respuesta": "A"},
-                {"Pregunta": "¿Cuál es la función principal del esqueleto en nuestro cuerpo?","Opciones": ["Proteger nuestros órganos","Almacenar minerales","Apoyar nuestro cuerpo y permitir el movimiento"],"Respuesta": "A"}
-            ]
-            # Definimos una puntuacion
+            {"Pregunta": "¿Qué es el ADN?", "Opciones": ["Una sustancia presente en las membranas celulares que impide que se salga el contenido de la célula.", "Una molécula que contiene las instrucciones para la fabricación de nuestros cuerpos.", "Una proteína presente en la sangre que ayuda a transportar oxígeno a los tejidos."],"Respuesta": "B"},
+            {"Pregunta": "Muchas enfermedades pueden curarse utilizando antibióticos. Sin embargo, el éxito de algunos antibióticos frente a la fiebre puerperal ha disminuido en los últimos años. ¿Cuál es la razón de este hecho?", "Opciones": ["Una vez fabricados, los antibióticos pierden gradualmente su actividad.", "Las bacterias se hacen resistentes a los antibióticos", "Esos antibióticos sólo ayudan frente a la fiebre puerperal, pero no frente a otras enfermedades."],"Respuesta":"B"},
+            {"Pregunta": "¿Cuál de las siguientes funciones es propia del pulmón?","Opciones": ["Bombear sangre oxigenada a todas las partes del cuerpo.", "Purificar la sangre reduciendo a cero su contenido en dióxido de carbono.", "Transferir el oxígeno del aire que respiras a la sangre."],"Respuesta":"C"},
+            {"Pregunta": "¿Cuál de las siguientes preguntas no puede ser respondida mediante pruebas científicas?", "Opciones": ["¿En quién pensaba la víctima cuando murió?", "¿Cuál fue la causa médica o fisiológica del fallecimiento de la víctima?", "¿Constituye el raspado de la mejilla una forma segura de recoger muestras de ADN?"],"Respuesta": "A"},
+            {"Pregunta": "¿Cuál es el proceso de la fotosíntesis en las plantas?","Opciones": ["Las plantas toman dióxido de carbono y producen oxígeno","Las plantas toman oxígeno y producen dióxido de carbono","Las plantas toman luz solar y producen glucosa"],"Respuesta": "C"},
+            {"Pregunta": "¿Cuántas cámaras tiene el corazón humano?","Opciones": ["1","2","3"],"Respuesta": "B"},
+            {"Pregunta": "¿Cuál es la función principal del sistema digestivo en nuestro cuerpo?","Opciones": ["Producir hormonas","Almacenar comida","Descomponer la comida en nutrientes utilizables"],"Respuesta": "C"},
+            {"Pregunta": "¿Cómo se llaman las unidades básicas de la vida?","Opciones": ["Átomos","Células","Tejidos"], "Respuesta": "B"},
+            {"Pregunta": "¿Cómo obtienen los nutrientes las plantas?","Opciones": ["A través de sus raíces del suelo","A través de sus hojas del aire","A través de su tallo del agua"],"Respuesta": "A"},
+            {"Pregunta": "¿Cuál es la función principal del esqueleto en nuestro cuerpo?","Opciones": ["Proteger nuestros órganos","Almacenar minerales","Apoyar nuestro cuerpo y permitir el movimiento"],"Respuesta": "A"}
+        ]
+        # Definimos una puntuacion
         score = 0
-            # Hacemos un loop for para tomar en cuenta en que pregunta está y cuantas le quedan
+        # Hacemos un loop for para tomas en cuenta en que pregunta esta y cuantas le querdan
         for Pregunta in Preguntas:
             # Aqui le preguntamos a el diccionario que si nos da una pregunta, opciones y respuesta para poderla poner nosotros
             answer = ask_question(Pregunta['Pregunta'], Pregunta['Opciones'], Pregunta['Respuesta'])
-                    # Esto nadamas si te la sacaste la pregunta bien le agrega un punto al puntaje
+            # Esto nadamas si te la sacaste la pregunta bien le agrega un punto al puntaje
             if answer == Pregunta['Respuesta']:
                 score += 1
-            # Aqui imprimimos la puntuacion y el numero de preguntas en total
+        # Aqui imprimimos la puntuacion y el numero de preguntas en total
         print(f"Tuviste una puntuacion de {score} de {len(Preguntas)}.")
-    
-    elif opcion=="d":
-        print ("Muchas gracias por usar el programa!!")
-    else:
-        print ('Opcion invalida')
-        print ('Porfavor intente de nuevo')
-        menu_p2()
         
 menu_p()
 
