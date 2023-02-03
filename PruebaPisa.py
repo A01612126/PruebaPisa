@@ -335,6 +335,7 @@ def menu_p():
 
     #Ciencias
     elif opcion=="c":
+        print ('Bienvenido a Biologia')
         # Definimos una funcion que nos prepare las opciones y nos diga si esta correcta o no
         def ask_question(Pregunta, Opciones, Respuesta):
             # Definimos el numero de veces que se puede preguntar una pregunta y usamos un while para no pasarnos
